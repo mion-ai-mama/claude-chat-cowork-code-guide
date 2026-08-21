@@ -23,8 +23,7 @@ const CONTENT = {
     description:
       "AIに質問するだけで終わってない？Claudeの「考える・任せる・自動化する」を初心者向けにやさしく解説。在宅ワークで今日から使えるプロンプト付きガイドです。",
     // og:image は絶対URL（https://から始まるURL）である必要があります。
-    // 現在は仮としてCTAバナー画像を流用しています。専用のOGP画像ができ次第、差し替えてください。
-    ogpImage: "https://mion-ai-mama.github.io/claude-chat-cowork-code-guide/assets/images/cta-banner.png",
+    ogpImage: "https://mion-ai-mama.github.io/claude-chat-cowork-code-guide/assets/images/ogp.png",
     siteUrl: "https://mion-ai-mama.github.io/claude-chat-cowork-code-guide/",
     faviconPath: "assets/favicon/favicon.svg",
   },

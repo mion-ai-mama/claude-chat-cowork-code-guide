@@ -53,8 +53,8 @@
 ## 未完了・ユーザー対応が必要な項目
 
 - [x] ローカル動作確認（ブラウザ表示・コピー機能・チェックリスト・レスポンシブ）
-- [ ] このガイド専用のOGP画像を用意し、`content.js` の `meta.ogpImage` を差し替える
-      （現在はCTAバナー画像を仮流用）
+- [x] このガイド専用のOGP画像を用意し、`content.js` の `meta.ogpImage` を差し替え済み
+      （`assets/images/ogp.png`）
 - [x] GitHub Pagesの公開設定 → 完了（`https://mion-ai-mama.github.io/claude-chat-cowork-code-guide/`）
 - [ ] 公開後、実機スマホでの最終確認
 - [ ] リポジトリを「テンプレートリポジトリ」に設定するかどうかの判断（このリポジトリ自体を
