@@ -1,4 +1,4 @@
-# Instagramリール特典ページ（GitHub Pages型テンプレート）
+# Claude Chat・Cowork・Code 在宅ワーク活用ガイド（特典ページ）
 
 > 設計の共通原則（基本原則・資産価値の原則・自律解決の原則）は `~/.claude/CLAUDE.md` に従う。
 
@@ -46,10 +46,12 @@ JavaScript無効時のフォールバック表示であり、`content.js` を編
 許可されたドキュメントのみ作成可能:
 - `docs/requirements.md`（要件定義）
 - `docs/SCOPE_PROGRESS.md`（進捗管理）
-- `README.md`（テンプレートの使い方）
+- `README.md`（ページの使い方）
 - `LICENSE.md`（利用方針）
 上記以外のドキュメント作成はユーザー許諾が必要。
 
-### テンプレートリポジトリとしての運用
-- 新しい特典ページは、このリポジトリを「Use this template」で複製してから編集する
-- 元のテンプレートリポジトリ自体は編集しない（README.md §16参照）
+### このリポジトリの位置づけ
+- [`instagram-tokuten-template`](https://github.com/mion-ai-mama/instagram-tokuten-template) を
+  「Use this template」で複製して作成した、このガイド専用のリポジトリ（テンプレート本体ではない）
+- ページ構成（セクション数・章立て）はこの特典の内容に合わせて独自にカスタマイズ済みのため、
+  元テンプレートの `steps` 配列形式とは `content.js` のスキーマが異なる

@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIで人気動画を分析する方法｜コピペで使える3STEPガイド</title>
-<meta name="description" content="人気の動画をChatGPTに見せるだけで「なぜ伸びたのか」「次の企画」が分かる。AI初心者さんでもすぐ試せる3STEPガイドです。コピペで使えるプロンプト付き。">
+<title>Claude Chat・Cowork・Code｜在宅ワーク使い分け完全ガイド</title>
+<meta name="description" content="AIに質問するだけで終わってない？Claudeの「考える・任せる・自動化する」を初心者向けにやさしく解説。在宅ワークで今日から使えるプロンプト付きガイドです。">
 
 <!-- OGP（SNSでシェアされたときの表示設定） -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="AIで人気動画を分析する方法｜コピペで使える3STEPガイド">
-<meta property="og:description" content="人気の動画をChatGPTに見せるだけで「なぜ伸びたのか」「次の企画」が分かる。AI初心者さんでもすぐ試せる3STEPガイドです。">
-<meta property="og:image" content="https://mion-ai-mama.github.io/instagram-tokuten-template/assets/images/video-poster.jpg">
-<meta property="og:url" content="https://mion-ai-mama.github.io/instagram-tokuten-template/">
+<meta property="og:title" content="Claude Chat・Cowork・Code｜在宅ワーク使い分け完全ガイド">
+<meta property="og:description" content="AIに質問するだけで終わってない？Claudeの「考える・任せる・自動化する」を初心者向けにやさしく解説。">
+<meta property="og:image" content="https://mion-ai-mama.github.io/claude-chat-cowork-code-guide/assets/images/cta-banner.png">
+<meta property="og:url" content="https://mion-ai-mama.github.io/claude-chat-cowork-code-guide/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2b8ce6">
 
@@ -25,87 +25,347 @@
 <main id="main">
 
   <!-- ============================================================
-       1. ファーストビュー
+       ファーストビュー
   ============================================================ -->
   <section class="hero" id="hero" aria-label="ページ紹介">
     <div class="hero__inner">
       <p class="hero__label">AI初心者さん向け</p>
       <h1 class="hero__title">
-        AIで人気動画を<br>分析する方法
+        Claude Chat・Cowork・Code<br>在宅ワーク使い分け完全ガイド
       </h1>
       <p class="hero__subtitle">
-        コピペで使える<br>3STEPガイド
+        AIに質問するだけで終わってない？<br>「考える・任せる・自動化する」を初心者向けにやさしく解説
       </p>
       <p class="hero__desc">
-        人気の動画をChatGPTに見せると、<br>
-        「なぜ伸びたのか」や<br>
-        「次にどんな企画を作ればいいのか」を<br>
-        初心者にも分かりやすく整理してもらえます。
+        たった3つの場所を知るだけで、<br>AIとの付き合い方が変わります。
       </p>
-      <a class="btn btn--primary btn--large" href="#step1" data-scroll>
-        3STEPを見てみる
+      <a class="btn btn--primary btn--large" href="#overview" data-scroll>
+        違いを見てみる
       </a>
     </div>
   </section>
 
+  <nav class="quick-nav" id="quick-nav" aria-label="セクションへのジャンプ">
+    <a class="quick-nav__link" href="#chat" data-scroll>Chat</a>
+    <a class="quick-nav__link" href="#cowork" data-scroll>Cowork</a>
+    <a class="quick-nav__link" href="#code" data-scroll>Code</a>
+  </nav>
+
   <!-- ============================================================
-       実例動画セクション
+       はじめに
   ============================================================ -->
-  <section class="section" id="example-video" aria-labelledby="example-video-heading">
+  <section class="section" id="intro" aria-label="はじめに">
     <div class="section__inner reveal">
-      <h2 class="section__heading" id="example-video-heading">実際に作った動画はこちら</h2>
-      <div class="video-card">
-        <video
-          id="example-video-player"
-          class="video-card__player"
-          controls
-          preload="none"
-          playsinline
-          poster="assets/images/video-poster.jpg"
-          aria-label="AIで動画分析を行い制作した実例動画">
-          <source src="assets/videos/example.mp4" type="video/mp4">
-          <p class="video-card__fallback">
-            動画を読み込めませんでした。ブラウザや通信環境をご確認いただくか、時間をおいて再度お試しください。
-          </p>
-        </video>
-        <p class="video-card__caption">
-          この動画は、<br>
-          人気動画の構成や見せ方をAIで分析し、<br>
-          その結果を参考に作成した実例です。<br><br>
-          元の動画をそのまま真似するのではなく、<br>
-          分析したポイントを自分の企画に応用しています。
-        </p>
+      <div class="prose">
+        <p>「Claudeを使っているけど、チャットで質問するだけ」<br>そんな人は多いかもしれません。</p>
+        <p>でも今のClaudeは、<br>質問に答えてもらうだけではありません。</p>
+        <p><strong>一緒に考える。<br>面倒な仕事を任せる。<br>繰り返す仕事を自動化する。</strong></p>
+        <p>使う場所を変えるだけで、<br>できることが大きく変わります。</p>
+        <p>このガイドでは、<br><strong>Chat・Cowork・Code</strong><br>の違いを、AI初心者さん向けにできるだけ簡単に解説します。</p>
+        <p>専門知識は不要。全部覚えなくてもOK。</p>
+        <p>読みながら、<br>「これなら私も使えそう」<br>と思ったものを1つ試してみてください。</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="author-tag" id="author-tag">
+    <strong>ミオン｜40代からのAI×おうちワーク</strong>
+    AIを日々の暮らしと仕事に活かす方法を発信しています。
+  </p>
+
+  <!-- ============================================================
+       まずは30秒で違いを理解
+  ============================================================ -->
+  <section class="section section--soft" id="overview" aria-labelledby="overview-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="overview-heading">まずは30秒で<br>違いを理解しましょう</h2>
+
+      <div class="overview-grid" id="overview-grid">
+        <div class="overview-card">
+          <p class="overview-card__name">Chat</p>
+          <span class="overview-card__badge">考える</span>
+          <ul class="overview-card__cases">
+            <li>アイデアが欲しい</li>
+            <li>相談したい</li>
+            <li>文章を作りたい</li>
+            <li>一緒に考えてほしい</li>
+          </ul>
+          <p class="overview-card__phrase">「これ、どうしたらいい？」</p>
+        </div>
+        <div class="overview-card">
+          <p class="overview-card__name">Cowork</p>
+          <span class="overview-card__badge">任せる</span>
+          <ul class="overview-card__cases">
+            <li>リサーチをまとめたい</li>
+            <li>複数の資料を整理したい</li>
+            <li>ファイルを扱う仕事を任せたい</li>
+            <li>面倒な仕事をまとめて進めてほしい</li>
+          </ul>
+          <p class="overview-card__phrase">「これ、調べてまとめておいて」</p>
+        </div>
+        <div class="overview-card">
+          <p class="overview-card__name">Code</p>
+          <span class="overview-card__badge">自動化を作る</span>
+          <ul class="overview-card__cases">
+            <li>毎回同じ仕事をしている</li>
+            <li>自分専用のツールが欲しい</li>
+            <li>作業工程を自動化したい</li>
+            <li>簡単なWebアプリや仕組みを作りたい</li>
+          </ul>
+          <p class="overview-card__phrase">「これ、自動でできるようにして」</p>
+        </div>
+      </div>
+
+      <div class="decision-box" id="decision-box">
+        <p class="decision-box__heading">迷ったらこの3つ</p>
+        <div class="decision-box__rows">
+          <div class="decision-box__row"><span>答えが欲しい</span><span class="decision-box__arrow">Chat</span></div>
+          <div class="decision-box__row"><span>今の仕事を任せたい</span><span class="decision-box__arrow">Cowork</span></div>
+          <div class="decision-box__row"><span>次からラクにしたい</span><span class="decision-box__arrow">Code</span></div>
+        </div>
+      </div>
+
+      <p class="plan-note" id="plan-note">
+        ※Cowork・CodeはPro以上のプラン（月20ドル前後〜）で使えます。まずは無料で使えるChatから試してみてください。<br>
+        ※利用できる機能はプランや環境によって異なります。最新情報はClaude公式（claude.com）をご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Chat｜一緒に考える
+  ============================================================ -->
+  <section class="section" id="chat" aria-labelledby="chat-heading">
+    <div class="section__inner reveal">
+      <span class="topic-eyebrow">Chat｜一緒に考える</span>
+      <h2 class="topic-heading" id="chat-heading">Chatは<br>「考える前の壁打ち相手」</h2>
+      <div class="prose">
+        <p>Chatは、<br><strong>「考える前の壁打ち相手」</strong><br>として使います。</p>
+        <p>AI初心者さんが、<br>最初に触る場所でもあります。</p>
+      </div>
+
+      <h3 class="section__heading" style="font-size:1.1rem;margin-top:2rem;" id="chat-examples-heading">在宅ワークでこんなことに使える</h3>
+      <ul class="example-list" id="chat-examples">
+        <li><span class="example-list__number">1</span><div><p class="example-list__title">在宅ワークのアイデアを考える</p><p class="example-list__quote">「私の経験や得意なことから、家でできそうな仕事を一緒に考えて」</p></div></li>
+        <li><span class="example-list__number">2</span><div><p class="example-list__title">Instagramの発信ネタを考える</p><p class="example-list__quote">「40代女性向けのAI活用リールのネタを10個考えて」</p></div></li>
+        <li><span class="example-list__number">3</span><div><p class="example-list__title">文章を作る</p><p class="example-list__detail">Instagram投稿・リール台本・キャプション・LINE配信・商品説明・note記事など</p></div></li>
+        <li><span class="example-list__number">4</span><div><p class="example-list__title">商品アイデアを考える</p><p class="example-list__quote">「AI初心者向けに販売できそうなデジタル商品を一緒に考えて」</p></div></li>
+        <li><span class="example-list__number">5</span><div><p class="example-list__title">困ったときに相談する</p><p class="example-list__quote">「やることが多すぎて何から進めればいいかわからない。優先順位を一緒に整理して」</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="chat-prompt" aria-labelledby="chat-prompt-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="chat-prompt-heading">「何から始める？」を<br>AIと整理するプロンプト</h2>
+      <p class="section__desc">在宅ワークの相談相手になってもらうための指示文です。<br>コピーしてそのままChatに送ってください。</p>
+      <div class="prompt-box">
+        <pre class="prompt-box__text" id="chat-prompt-text">あなたには、私の在宅ワークの相談相手になってほしいです。
+
+いきなり答えを決めずに、
+まず私の状況を知るための質問を1つずつしてください。
+
+質問してほしいこと：
+・これまでの仕事や経験
+・得意なこと
+・苦手なこと
+・1日に使える時間
+・興味があること
+・目指したい働き方
+
+必要な質問が終わったら、
+
+1. 私の強み
+2. 向いていそうな選択肢
+3. AIを使える部分
+4. 最初の一歩
+
+の順番で整理してください。
+
+専門用語は使わず、
+AI初心者にもわかる言葉で説明してください。</pre>
+        <button type="button" class="btn btn--primary copy-btn" data-copy-target="chat-prompt-text" aria-label="Chat用プロンプトをコピーする">
+          <span class="copy-btn__label">この指示文をコピーする</span>
+          <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+        </button>
+      </div>
+      <div class="note-box">
+        <p class="note-box__label">注意</p>
+        <p>AIの提案だけで仕事や収益性を判断せず、最終判断は自分で行いましょう。</p>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       3. メインプロンプト（実例動画の直後に表示）
+       Cowork｜面倒な仕事を任せる
   ============================================================ -->
-  <section class="section section--soft" id="main-prompt" aria-labelledby="main-prompt-heading">
+  <section class="section" id="cowork" aria-labelledby="cowork-heading">
     <div class="section__inner reveal">
-      <h2 class="section__heading" id="main-prompt-heading">この指示文をコピーして使ってください</h2>
-      <p class="section__desc">下の文章をコピーして、<br>スクショと一緒にChatGPTへ送ってください。</p>
+      <span class="topic-eyebrow">Cowork｜面倒な仕事を任せる</span>
+      <h2 class="topic-heading" id="cowork-heading">Coworkは<br>「まとまった仕事を任せる」場所</h2>
+      <div class="prose">
+        <p>Chatとの一番の違いは、シンプルです。</p>
+        <p>Chat：<strong>一緒に考える</strong><br>Cowork：<strong>ある程度まとまった仕事を任せる</strong></p>
+        <p>「エージェント」のような専門的な説明は、ここでは置いておいて大丈夫です。</p>
+      </div>
+    </div>
+  </section>
 
+  <section class="section section--soft" id="cowork-examples" aria-labelledby="cowork-examples-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="cowork-examples-heading">在宅ワークで使えるCowork活用例</h2>
+      <ul class="example-list" id="cowork-example-list">
+        <li><span class="example-list__number">1</span><div><p class="example-list__title">リサーチ資料を整理してもらう</p><p class="example-list__detail">複数の資料を読み、共通点・違い・重要ポイントを表にまとめてもらえます。</p></div></li>
+        <li><span class="example-list__number">2</span><div><p class="example-list__title">過去の投稿を分析してもらう</p><p class="example-list__detail">過去に作った台本や投稿をまとめて渡すと、テーマ・フック・内容・CTAなどで整理してくれます。</p></div></li>
+        <li><span class="example-list__number">3</span><div><p class="example-list__title">商品リサーチを整理してもらう</p><p class="example-list__detail">集めた情報をカテゴリ別に整理してもらえます。<br><span class="muted-note">※外部サイトへの接続可否は最新の公式仕様をご確認ください。</span></p></div></li>
+        <li><span class="example-list__number">4</span><div><p class="example-list__title">お客様アンケートを整理してもらう</p><p class="example-list__detail">複数の回答から、よくある悩み・よく使われている言葉・ニーズ・商品アイデアを整理してもらえます。</p></div></li>
+        <li><span class="example-list__number">5</span><div><p class="example-list__title">資料のたたき台を作ってもらう</p><p class="example-list__detail">手元の素材から、表・資料・まとめ・下書きなどを作成してもらえます。<br><span class="muted-note">※作成できるファイル形式は最新の公式仕様をご確認ください。</span></p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="cowork-prompt" aria-labelledby="cowork-prompt-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="cowork-prompt-heading">「資料を整理して」と<br>任せるプロンプト</h2>
+      <p class="section__desc">専用フォルダにファイルを入れたら、<br>この指示文をコピーして送ってください。</p>
       <div class="prompt-box">
-        <pre class="prompt-box__text" id="main-prompt-text">添付したスクショは
-YouTubeで人気の動画です。
+        <pre class="prompt-box__text" id="cowork-prompt-text">このフォルダの資料を確認して、
+内容をわかりやすく整理してください。
 
-以下を分析してください。
+まず最初に、
+どんなファイルが入っているか確認してください。
 
-・この動画が伸びた理由
-・ターゲット
-・冒頭3秒の工夫
-・構成
-・視聴維持率が高そうなポイント
-・この動画を参考にした新しい企画を10個考えてください。
+そのあと、
 
-初心者にも分かるように解説してください。</pre>
-        <button
-          type="button"
-          class="btn btn--primary copy-btn"
-          data-copy-target="main-prompt-text"
-          aria-label="メインプロンプトの指示文をコピーする">
+1. 内容をテーマ別に分類
+2. それぞれの重要ポイントを要約
+3. 共通して出てくる内容を整理
+4. 今後使えそうな情報をピックアップ
+
+してください。
+
+ファイルの削除・上書き・移動は、
+私の確認なしでは行わないでください。
+
+まず作業方針を説明して、
+私がOKしてから進めてください。</pre>
+        <button type="button" class="btn btn--primary copy-btn" data-copy-target="cowork-prompt-text" aria-label="Cowork用プロンプトをコピーする">
+          <span class="copy-btn__label">この指示文をコピーする</span>
+          <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="cowork-safety" aria-labelledby="cowork-safety-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="cowork-safety-heading">Coworkを使う前に<br>必ず読んでください</h2>
+      <div class="prose">
+        <p><strong>最初は専用フォルダを作る</strong></p>
+        <p>いきなりデスクトップや重要フォルダ全体を渡さないようにしましょう。<br>例えば<strong>「Claude作業用」</strong>というフォルダを新しく作り、<br>今回使うファイルだけをコピーして入れる、というやり方が安心です。</p>
+      </div>
+      <div class="note-box">
+        <p class="note-box__label">入れないもの</p>
+        <ul class="dont-list">
+          <li>パスワード</li>
+          <li>クレジットカード情報</li>
+          <li>銀行関連情報</li>
+          <li>個人情報</li>
+          <li>顧客の機密情報</li>
+          <li>契約上外部AIへの入力が禁止されているデータ</li>
+        </ul>
+      </div>
+      <div class="note-box" style="margin-top:1rem;">
+        <p class="note-box__label">重要</p>
+        <p>「AIだから安全」と決めつけないことが大切です。仕事のデータを扱う場合は、会社やクライアントのルールも必ず確認しましょう。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Code｜自動化を作る
+  ============================================================ -->
+  <section class="section" id="code" aria-labelledby="code-heading">
+    <div class="section__inner reveal">
+      <span class="topic-eyebrow">Code｜自動化を作る</span>
+      <h2 class="topic-heading" id="code-heading">Codeは<br>「自動化を一緒に作る」場所</h2>
+      <div class="prose">
+        <p>「Code」と聞くと、<br>プログラミングができる人向けに感じるかもしれません。</p>
+        <p>でも実際は、<br>「こんなものが欲しい」<br>と日本語で説明しながら、<br>Webツールや仕組みを作っていくこともできます。</p>
+        <p>ただし、<strong>誰でも何でもワンクリックで作れる</strong>、というわけではありません。<br>最初は簡単なところから、少しずつ試してみましょう。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CoworkとCodeの違い
+  ============================================================ -->
+  <section class="section section--soft" id="compare" aria-labelledby="compare-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="compare-heading">CoworkとCodeの違い</h2>
+      <div class="compare-grid">
+        <div class="compare-card">
+          <span class="compare-card__label">Cowork</span>
+          <p class="compare-card__phrase">今回の仕事を任せる</p>
+          <p class="compare-card__example">例：「この30個の資料を整理して」</p>
+          <p class="compare-card__arrow">↓</p>
+          <p class="compare-card__result">今回の整理作業が終わる。</p>
+        </div>
+        <div class="compare-card">
+          <span class="compare-card__label">Code</span>
+          <p class="compare-card__phrase">次から自分でやらなくていい形を作る</p>
+          <p class="compare-card__example">例：毎回資料整理するのが面倒</p>
+          <p class="compare-card__arrow">↓</p>
+          <p class="compare-card__result">ファイルを入れるだけで自動で整理・分類するツールを作る。</p>
+        </div>
+      </div>
+      <div class="compare-summary">
+        今回ラクする → Cowork<br>これからずっとラクする → Code
+      </div>
+      <p class="compare-note">※あくまで理解を助けるための簡略化です。正確な機能範囲とは異なる場合があります。</p>
+    </div>
+  </section>
+
+  <section class="section" id="code-examples" aria-labelledby="code-examples-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="code-examples-heading">在宅ワークで使えるCode活用例</h2>
+      <ul class="example-list" id="code-example-list">
+        <li><span class="example-list__number">1</span><div><p class="example-list__title">投稿管理ツール</p><p class="example-list__detail">投稿タイトル・投稿日・ステータス・再生数などをまとめて管理できます。</p></div></li>
+        <li><span class="example-list__number">2</span><div><p class="example-list__title">リール台本文字数チェッカー</p><p class="example-list__detail">台本を貼ると、文字数やおおよその長さ、長すぎる箇所を確認できます。<br><span class="muted-note">※秒数などを表示する場合はあくまで「目安」です。</span></p></div></li>
+        <li><span class="example-list__number">3</span><div><p class="example-list__title">商品アイデア整理ツール</p><p class="example-list__detail">アイデアを入力すると、ターゲット・悩み・商品内容・CTAなどを整理できます。</p></div></li>
+        <li><span class="example-list__number">4</span><div><p class="example-list__title">定型作業の自動化</p><p class="example-list__detail">毎回繰り返しているPC作業を、自動化できないかClaude Codeに相談してみましょう。</p></div></li>
+        <li><span class="example-list__number">5</span><div><p class="example-list__title">自分専用ミニWebアプリ</p><p class="example-list__detail">例えば「質問に答えると、自分に合った在宅ワークの候補を整理してくれるツール」など。<br><span class="muted-note">※成果や収益を保証するものではありません。</span></p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="code-prompt" aria-labelledby="code-prompt-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="code-prompt-heading">Code初心者向け<br>「最初の頼み方」</h2>
+      <p class="section__desc">いきなり作ってもらうのではなく、<br>まず相談するところから始めましょう。</p>
+      <div class="prompt-box">
+        <pre class="prompt-box__text" id="code-prompt-text">プログラミング初心者です。
+
+普段、次の作業を繰り返しています。
+
+【ここに普段やっている作業を書く】
+
+この作業の中で、
+Claude Codeを使って自動化できそうな部分はありますか？
+
+いきなり作らずに、
+
+1. 自動化できそうな部分
+2. 自動化が難しい部分
+3. 初心者でも作れそうな方法
+4. 必要なもの
+5. 作る場合の手順
+
+を先に説明してください。
+
+専門用語を使う場合は、
+必ず初心者向けの説明も付けてください。</pre>
+        <button type="button" class="btn btn--primary copy-btn" data-copy-target="code-prompt-text" aria-label="Code用プロンプトをコピーする">
           <span class="copy-btn__label">この指示文をコピーする</span>
           <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
         </button>
@@ -114,166 +374,78 @@ YouTubeで人気の動画です。
   </section>
 
   <!-- ============================================================
-       4〜6. STEP（steps-container の中身は js/content.js の steps
-       配列から自動生成されます。ここにあるHTMLは、JavaScriptが
-       読み込めなかった場合に表示される初期表示用です）
+       結局どれを使えばいい？
   ============================================================ -->
-  <div id="steps-container">
-    <section class="section step" id="step1" aria-labelledby="step1-heading">
-      <div class="section__inner reveal">
-        <p class="step__number">STEP 1</p>
-        <h2 class="step__title" id="step1-heading">気になる人気動画を見つける</h2>
-        <div class="prose">
-          <p>YouTubeやInstagramで、次のような動画を探しましょう。</p>
-          <ul class="check-list">
-            <li>最後まで見てしまった動画</li>
-            <li>再生回数が多い動画</li>
-            <li>コメントや反応が多い動画</li>
-            <li>自分の発信テーマに近い動画</li>
-            <li>なぜか気になって何度も見た動画</li>
-          </ul>
-          <p>そのまま真似するのではなく、「なぜ気になったのか」を考える参考として選びましょう。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--soft step" id="step2" aria-labelledby="step2-heading">
-      <div class="section__inner reveal">
-        <p class="step__number">STEP 2</p>
-        <h2 class="step__title" id="step2-heading">動画のスクショを撮る</h2>
-        <div class="prose">
-          <p>動画の流れが分かるように、3〜5枚ほどスクショを撮ります。</p>
-          <ul class="check-list">
-            <li>動画のタイトルやサムネイル</li>
-            <li>冒頭の場面</li>
-            <li>内容が大きく動く場面</li>
-            <li>途中の重要な場面</li>
-            <li>最後のまとめや案内部分</li>
-          </ul>
-        </div>
-        <div class="note-box">
-          <p class="note-box__label">補足</p>
-          <p>YouTubeのURLだけでは分析できない場合があるため、スクショを送る方法がおすすめです。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section step" id="step3" aria-labelledby="step3-heading">
-      <div class="section__inner reveal">
-        <p class="step__number">STEP 3</p>
-        <h2 class="step__title" id="step3-heading">スクショと指示文を<br>ChatGPTに送る</h2>
-        <div class="prose">
-          <p>ChatGPTを開いたら、<br>先ほど撮ったスクショを添付します。</p>
-          <p>そのあと、<br>このページにある指示文をコピーして送ってください。</p>
-          <p>難しい設定は必要ありません。</p>
-          <p>スクショを添付して、<br>指示文を貼り付けて送るだけです。</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ============================================================
-       7. 結果をよくするコツ
-  ============================================================ -->
-  <section class="section" id="tips" aria-labelledby="tips-heading">
+  <section class="section" id="which" aria-labelledby="which-heading">
     <div class="section__inner reveal">
-      <h2 class="section__heading" id="tips-heading">さらに分かりやすい答えを<br>出してもらうコツ</h2>
-      <div class="card-grid">
-        <div class="card">
-          <span class="card__icon" aria-hidden="true">📝</span>
-          <h3 class="card__title">自分の目的を伝える</h3>
-          <p class="card__desc">「Instagramリールの企画に使いたい」など、何に使いたいのかを伝えると、より目的に合った答えが出やすくなります。</p>
-        </div>
-        <div class="card">
-          <span class="card__icon" aria-hidden="true">🙋</span>
-          <h3 class="card__title">誰向けかを伝える</h3>
-          <p class="card__desc">「40代・50代のAI初心者向け」など、届けたい相手を伝えると、企画の方向性が具体的になります。</p>
-        </div>
-        <div class="card">
-          <span class="card__icon" aria-hidden="true">💬</span>
-          <h3 class="card__title">難しい場合は聞き直す</h3>
-          <p class="card__desc">答えが難しいと感じたら、「もっと簡単な言葉で説明してください」と追加で伝えて大丈夫です。</p>
-        </div>
+      <h2 class="section__heading" id="which-heading">結局どれを<br>使えばいい？</h2>
+      <ul class="qa-list">
+        <li><p class="qa-list__q">アイデア・文章・答えが欲しい？</p><p class="qa-list__a">→ Chat</p></li>
+        <li><p class="qa-list__q">今ある資料やファイルを使った仕事を終わらせたい？</p><p class="qa-list__a">→ Cowork</p></li>
+        <li><p class="qa-list__q">同じ仕事を何度も繰り返している？</p><p class="qa-list__a">→ Codeを検討</p></li>
+      </ul>
+
+      <h3 class="section__heading" style="font-size:1.1rem;" id="ask-claude-heading">迷ったらClaude自身に<br>聞けばOK</h3>
+      <div class="prompt-box">
+        <pre class="prompt-box__text" id="ask-claude-prompt-text">次の仕事をしたいです。
+
+【やりたいことを書く】
+
+Claudeの
+Chat・Cowork・Codeのどれを使うのが一番向いていますか？
+
+AI初心者にもわかるように、
+理由と使い方を教えてください。</pre>
+        <button type="button" class="btn btn--primary copy-btn" data-copy-target="ask-claude-prompt-text" aria-label="どれを使うか迷ったときのプロンプトをコピーする">
+          <span class="copy-btn__label">この指示文をコピーする</span>
+          <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+        </button>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       8. 追加で使える質問5選
+       今日やること
   ============================================================ -->
-  <section class="section section--soft" id="extra-questions" aria-labelledby="extra-questions-heading">
+  <section class="section section--soft" id="today" aria-labelledby="today-heading">
     <div class="section__inner reveal">
-      <h2 class="section__heading" id="extra-questions-heading">もっと深く分析したいときの<br>追加質問5選</h2>
-      <p class="section__desc">最初の分析結果を見たあと、<br>気になる質問を追加で送ってみてください。</p>
-
-      <div class="question-list" id="extra-questions-list">
-        <div class="question-card">
-          <pre class="question-card__text" id="question-1">この動画が伸びた一番大きな理由を、
-初心者にも分かるように3つ教えてください。</pre>
-          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-1" aria-label="追加質問1をコピーする">
-            <span class="copy-btn__label">コピーする</span>
-            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
-          </button>
-        </div>
-        <div class="question-card">
-          <pre class="question-card__text" id="question-2">この動画の内容を、
-40代・50代の初心者向けに変えるとしたら、
-どのような企画になりますか？</pre>
-          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-2" aria-label="追加質問2をコピーする">
-            <span class="copy-btn__label">コピーする</span>
-            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
-          </button>
-        </div>
-        <div class="question-card">
-          <pre class="question-card__text" id="question-3">この動画をInstagramリールにする場合、
-30秒以内の構成を考えてください。</pre>
-          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-3" aria-label="追加質問3をコピーする">
-            <span class="copy-btn__label">コピーする</span>
-            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
-          </button>
-        </div>
-        <div class="question-card">
-          <pre class="question-card__text" id="question-4">このテーマを参考にしながら、
-内容が重ならない新しい企画を10個考えてください。</pre>
-          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-4" aria-label="追加質問4をコピーする">
-            <span class="copy-btn__label">コピーする</span>
-            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
-          </button>
-        </div>
-        <div class="question-card">
-          <pre class="question-card__text" id="question-5">この動画の良い部分と、
-そのまま真似しない方がよい部分を教えてください。</pre>
-          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-5" aria-label="追加質問5をコピーする">
-            <span class="copy-btn__label">コピーする</span>
-            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
-          </button>
-        </div>
-      </div>
+      <h2 class="section__heading" id="today-heading">今日やること</h2>
+      <p class="section__desc">今日の10分チャレンジ</p>
+      <ul class="todo-list">
+        <li><label><input type="checkbox"><span>Chatで相談を1つする</span></label></li>
+        <li><label><input type="checkbox"><span>Coworkを使える人は、専用フォルダを1つ作る</span></label></li>
+        <li><label><input type="checkbox"><span>毎週・毎月繰り返している仕事を3つ書き出す</span></label></li>
+        <li><label><input type="checkbox"><span>その中から1つ、「これって自動化できる？」とClaudeに聞く</span></label></li>
+      </ul>
+      <p class="todo-list__foot">全部やらなくてOK。<br>今日は1つできれば十分です。</p>
     </div>
   </section>
 
   <!-- ============================================================
-       9. 注意点
+       AIを使えるだけでは収入にはならない
   ============================================================ -->
-  <section class="section" id="caution" aria-labelledby="caution-heading">
+  <section class="section" id="closing" aria-labelledby="closing-heading">
     <div class="section__inner reveal">
-      <h2 class="section__heading" id="caution-heading">人気動画を参考にするときの注意点</h2>
+      <h2 class="section__heading" id="closing-heading">AIを使えるだけでは<br>収入にはならない</h2>
       <div class="prose">
-        <p>参考にするのは、テーマの見せ方や構成、伝え方のヒントです。<br>文章・画像・動画をそのまま使うのは避け、自分らしい企画に変えていきましょう。</p>
+        <p>Claudeを使えるようになること自体が、<br>ゴールではありません。</p>
+        <p>大切なのは、<br><strong>「自分の場合、AIを何に使えば<br>仕事や収入につながるのか」</strong><br>を考えることです。</p>
+        <p>人によって、<br>持っている経験・得意なこと・使える時間・<br>目指す収入・向いている働き方は違います。</p>
+        <p>だから、<br>「このAIを使えば誰でも稼げる」<br>という単純な話ではありません。</p>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       10. 最後の案内（CTA）
+       最後の案内（CTA）
   ============================================================ -->
   <section class="section" id="cta" aria-labelledby="cta-heading">
     <div class="section__inner reveal">
       <div class="cta-card">
-        <h2 class="cta-card__heading" id="cta-heading">AIをもっと仕事や暮らしに<br>活かしてみたい方へ</h2>
+        <h2 class="cta-card__heading" id="cta-heading">「私はどう活かす？」を<br>一緒に整理したい方へ</h2>
         <div class="prose">
-          <p>今回紹介した方法は、<br>AIの活用法のほんの一例です。</p>
-          <p>AIを知るだけではなく、<br>実際の仕事や日々の作業にどう活かすかを知ることで、<br>できることはさらに広がります。</p>
+          <p>今回紹介したChat・Cowork・Codeの使い方は、<br>AI活用のほんの入り口です。</p>
+          <p>AIを知るだけではなく、<br>自分の経験や得意なことを、<br>実際の仕事や収入にどうつなげるかを知ることで、<br>できることはさらに広がります。</p>
           <p>
             AI初心者さん向けに、<br>
             AIを仕事に活かす考え方や方法をまとめた<br>
@@ -291,7 +463,7 @@ YouTubeで人気の動画です。
 </main>
 
 <!-- ============================================================
-     11. フッター
+     フッター
 ============================================================ -->
 <footer class="footer">
   <p>© MION</p>

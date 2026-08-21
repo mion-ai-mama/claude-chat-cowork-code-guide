@@ -42,22 +42,7 @@
   }
 
   /* ------------------------------------------------------------
-     セクションの表示・非表示（content.js の sections で一括制御）
-  ------------------------------------------------------------ */
-  function toggleSection(id, visible) {
-    const root = document.getElementById(id);
-    if (!root) return;
-    if (visible) {
-      root.style.display = "";
-      root.removeAttribute("aria-hidden");
-    } else {
-      root.style.display = "none";
-      root.setAttribute("aria-hidden", "true");
-    }
-  }
-
-  /* ------------------------------------------------------------
-     1. ファーストビュー
+     ファーストビュー
   ------------------------------------------------------------ */
   function renderHero(c) {
     const root = document.getElementById("hero");
@@ -71,158 +56,236 @@
     btn.setAttribute("href", "#" + c.buttonScrollTargetId);
   }
 
-  /* ------------------------------------------------------------
-     実例動画
-  ------------------------------------------------------------ */
-  function renderExampleVideo(c) {
-    const root = document.getElementById("example-video");
-    if (!root || !c) return;
-
-    root.querySelector(".section__heading").innerHTML = c.heading;
-    const card = root.querySelector(".video-card");
-
-    let mediaHtml;
-    if (c.mode === "youtube" && c.youtube && c.youtube.embedUrl) {
-      mediaHtml = `
-        <div class="video-card__embed-wrap">
-          <iframe
-            src="${c.youtube.embedUrl}"
-            title="実際に作った動画"
-            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            loading="lazy"></iframe>
-        </div>`;
-    } else {
-      const poster = c.local && c.local.poster ? c.local.poster : "";
-      const src = c.local && c.local.src ? c.local.src : "";
-      mediaHtml = `
-        <video
-          class="video-card__player"
-          controls
-          preload="none"
-          playsinline
-          poster="${poster}"
-          aria-label="実際に作った動画">
-          <source src="${src}" type="video/mp4">
-          <p class="video-card__fallback">${c.fallbackText || ""}</p>
-        </video>`;
-    }
-
-    card.innerHTML = mediaHtml + `<p class="video-card__caption">${c.caption}</p>`;
-  }
-
-  /* ------------------------------------------------------------
-     4〜6. STEP
-     steps 配列の数だけ、STEPセクションをその場で組み立てます。
-     （HTML側は steps-container という空の入れ物があるだけなので、
-     　content.js の steps を増減させれば、STEPの数も自由に変わります）
-  ------------------------------------------------------------ */
-  function renderSteps(steps) {
-    const container = document.getElementById("steps-container");
-    if (!container || !steps) return;
-
-    container.innerHTML = steps
-      .map((step, i) => {
-        const id = "step" + (i + 1);
-        const softClass = i % 2 === 1 ? " section--soft" : "";
-
-        let prose = (step.paragraphs || []).map((p) => `<p>${p}</p>`).join("");
-        if (step.list && step.list.length) {
-          prose += '<ul class="check-list">' + step.list.map((li) => `<li>${li}</li>`).join("") + "</ul>";
-        }
-        prose += (step.afterParagraphs || []).map((p) => `<p>${p}</p>`).join("");
-
-        const noteHtml = step.note
-          ? `<div class="note-box"><p class="note-box__label">${step.note.label}</p><p>${step.note.text}</p></div>`
-          : "";
-
-        return `
-        <section class="section${softClass} step" id="${id}" aria-labelledby="${id}-heading">
-          <div class="section__inner reveal">
-            <p class="step__number">${step.number}</p>
-            <h2 class="step__title" id="${id}-heading">${step.title}</h2>
-            <div class="prose">${prose}</div>
-            ${noteHtml}
-          </div>
-        </section>`;
-      })
+  function renderQuickNav(items) {
+    const root = document.getElementById("quick-nav");
+    if (!root || !items) return;
+    root.innerHTML = items
+      .map((item) => `<a class="quick-nav__link" href="#${item.targetId}" data-scroll>${escapeHtml(item.label)}</a>`)
       .join("");
   }
 
   /* ------------------------------------------------------------
-     3. メインプロンプト
+     はじめに／著者タグ
   ------------------------------------------------------------ */
-  function renderMainPrompt(c) {
-    const root = document.getElementById("main-prompt");
+  function renderIntro(c) {
+    const root = document.getElementById("intro");
     if (!root || !c) return;
-    root.querySelector(".section__heading").innerHTML = c.heading;
-    root.querySelector(".section__desc").innerHTML = c.description;
-    const textEl = document.getElementById("main-prompt-text");
-    textEl.textContent = c.promptText;
-    const btn = root.querySelector(".copy-btn");
-    btn.setAttribute("data-copy-target", "main-prompt-text");
-    btn.querySelector(".copy-btn__label").textContent = c.buttonText;
-    btn.querySelector(".copy-btn__done").textContent = c.copiedText;
+    root.querySelector(".prose").innerHTML = c.paragraphs.map((p) => `<p>${p}</p>`).join("");
+  }
+
+  function renderAuthor(c) {
+    const root = document.getElementById("author-tag");
+    if (!root || !c) return;
+    root.innerHTML = `<strong>${escapeHtml(c.name)}</strong>${escapeHtml(c.bio)}`;
   }
 
   /* ------------------------------------------------------------
-     7. 結果をよくするコツ
+     まずは30秒で違いを理解
   ------------------------------------------------------------ */
-  const TIP_ICONS = ["📝", "🙋", "💬"];
-
-  function renderTips(c) {
-    const root = document.getElementById("tips");
+  function renderOverview(c) {
+    const root = document.getElementById("overview");
     if (!root || !c) return;
     root.querySelector(".section__heading").innerHTML = c.heading;
-    const grid = root.querySelector(".card-grid");
+
+    const grid = document.getElementById("overview-grid");
     grid.innerHTML = c.cards
       .map(
-        (card, i) => `
-      <div class="card">
-        <span class="card__icon" aria-hidden="true">${TIP_ICONS[i] || "💡"}</span>
-        <h3 class="card__title">${card.title}</h3>
-        <p class="card__desc">${card.description}</p>
+        (card) => `
+      <div class="overview-card">
+        <p class="overview-card__name">${escapeHtml(card.name)}</p>
+        <span class="overview-card__badge">${escapeHtml(card.badge)}</span>
+        <ul class="overview-card__cases">${card.cases.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+        <p class="overview-card__phrase">${escapeHtml(card.phrase)}</p>
       </div>`
       )
       .join("");
+
+    const box = document.getElementById("decision-box");
+    const d = c.decisionBox;
+    box.innerHTML =
+      `<p class="decision-box__heading">${d.heading}</p><div class="decision-box__rows">` +
+      d.rows
+        .map((row) => `<div class="decision-box__row"><span>${escapeHtml(row.question)}</span><span class="decision-box__arrow">${escapeHtml(row.answer)}</span></div>`)
+        .join("") +
+      `</div>`;
+
+    document.getElementById("plan-note").innerHTML = c.planNote;
   }
 
   /* ------------------------------------------------------------
-     8. 追加で使える質問5選
+     活用例リスト（Chat / Cowork / Code 共通）
   ------------------------------------------------------------ */
-  function renderExtraQuestions(c) {
-    const root = document.getElementById("extra-questions");
-    if (!root || !c) return;
-    root.querySelector(".section__heading").innerHTML = c.heading;
-    root.querySelector(".section__desc").innerHTML = c.description;
-    const list = document.getElementById("extra-questions-list");
-    list.innerHTML = c.questions
-      .map((q, i) => {
-        const id = "question-" + (i + 1);
-        return `
-        <div class="question-card">
-          <pre class="question-card__text" id="${id}">${escapeHtml(q)}</pre>
-          <button type="button" class="btn btn--outline copy-btn" data-copy-target="${id}" aria-label="追加質問${i + 1}をコピーする">
-            <span class="copy-btn__label">${c.buttonText}</span>
-            <span class="copy-btn__done" role="status" aria-live="polite">${c.copiedText}</span>
-          </button>
-        </div>`;
+  function buildExampleListHtml(examples) {
+    return examples
+      .map((ex, i) => {
+        const body = ex.quote
+          ? `<p class="example-list__quote">${ex.quote}</p>`
+          : `<p class="example-list__detail">${ex.detail}</p>`;
+        return `<li><span class="example-list__number">${i + 1}</span><div><p class="example-list__title">${ex.title}</p>${body}</div></li>`;
       })
       .join("");
   }
 
   /* ------------------------------------------------------------
-     9. 注意点
+     Chat｜一緒に考える
   ------------------------------------------------------------ */
-  function renderCaution(c) {
-    const root = document.getElementById("caution");
+  function renderChat(c) {
+    const root = document.getElementById("chat");
+    if (!root || !c) return;
+    root.querySelector(".topic-eyebrow").textContent = c.eyebrow;
+    root.querySelector(".topic-heading").innerHTML = c.heading;
+    root.querySelector(".prose").innerHTML = c.intro.map((p) => `<p>${p}</p>`).join("");
+    document.getElementById("chat-examples-heading").innerHTML = c.examplesHeading;
+    document.getElementById("chat-examples").innerHTML = buildExampleListHtml(c.examples);
+
+    renderPromptBox("chat-prompt", c.prompt);
+  }
+
+  function renderPromptBox(sectionId, p) {
+    const root = document.getElementById(sectionId);
+    if (!root || !p) return;
+    root.querySelector(".section__heading").innerHTML = p.heading;
+    const descEl = root.querySelector(".section__desc");
+    if (descEl && p.description) descEl.innerHTML = p.description;
+    const textEl = root.querySelector(".prompt-box__text");
+    textEl.textContent = p.promptText;
+    const btn = root.querySelector(".copy-btn");
+    btn.querySelector(".copy-btn__label").textContent = p.buttonText;
+    btn.querySelector(".copy-btn__done").textContent = p.copiedText;
+
+    let noteEl = root.querySelector(".note-box");
+    if (p.note) {
+      if (!noteEl) {
+        noteEl = document.createElement("div");
+        noteEl.className = "note-box";
+        root.querySelector(".section__inner").appendChild(noteEl);
+      }
+      noteEl.innerHTML = `<p class="note-box__label">${escapeHtml(p.note.label)}</p><p>${p.note.text}</p>`;
+    } else if (noteEl) {
+      noteEl.remove();
+    }
+  }
+
+  /* ------------------------------------------------------------
+     Cowork｜面倒な仕事を任せる
+  ------------------------------------------------------------ */
+  function renderCowork(c) {
+    const root = document.getElementById("cowork");
+    if (!root || !c) return;
+    root.querySelector(".topic-eyebrow").textContent = c.eyebrow;
+    root.querySelector(".topic-heading").innerHTML = c.heading;
+    root.querySelector(".prose").innerHTML = c.intro.map((p) => `<p>${p}</p>`).join("");
+
+    document.getElementById("cowork-examples-heading").innerHTML = c.examplesHeading;
+    document.getElementById("cowork-example-list").innerHTML = buildExampleListHtml(c.examples);
+
+    renderPromptBox("cowork-prompt", c.prompt);
+
+    const safetyRoot = document.getElementById("cowork-safety");
+    const s = c.safety;
+    if (safetyRoot && s) {
+      safetyRoot.querySelector(".section__heading").innerHTML = s.heading;
+      const proseEls = safetyRoot.querySelectorAll(".prose p");
+      if (proseEls[0]) proseEls[0].innerHTML = `<strong>${s.stepHeading}</strong>`;
+      if (proseEls[1]) proseEls[1].innerHTML = s.stepText;
+      const noteBoxes = safetyRoot.querySelectorAll(".note-box");
+      if (noteBoxes[0]) {
+        noteBoxes[0].innerHTML =
+          `<p class="note-box__label">${escapeHtml(s.dontHeading)}</p><ul class="dont-list">` +
+          s.dontList.map((item) => `<li>${escapeHtml(item)}</li>`).join("") +
+          `</ul>`;
+      }
+      if (noteBoxes[1] && s.note) {
+        noteBoxes[1].innerHTML = `<p class="note-box__label">${escapeHtml(s.note.label)}</p><p>${s.note.text}</p>`;
+      }
+    }
+  }
+
+  /* ------------------------------------------------------------
+     Code｜自動化を作る
+  ------------------------------------------------------------ */
+  function renderCode(c) {
+    const root = document.getElementById("code");
+    if (!root || !c) return;
+    root.querySelector(".topic-eyebrow").textContent = c.eyebrow;
+    root.querySelector(".topic-heading").innerHTML = c.heading;
+    root.querySelector(".prose").innerHTML = c.intro.map((p) => `<p>${p}</p>`).join("");
+
+    document.getElementById("code-examples-heading").innerHTML = c.examplesHeading;
+    document.getElementById("code-example-list").innerHTML = buildExampleListHtml(c.examples);
+
+    renderPromptBox("code-prompt", c.prompt);
+  }
+
+  /* ------------------------------------------------------------
+     CoworkとCodeの違い
+  ------------------------------------------------------------ */
+  function renderCompare(c) {
+    const root = document.getElementById("compare");
+    if (!root || !c) return;
+    root.querySelector(".section__heading").innerHTML = c.heading;
+    const cards = root.querySelectorAll(".compare-card");
+    [c.cowork, c.code].forEach((data, i) => {
+      const card = cards[i];
+      if (!card) return;
+      card.querySelector(".compare-card__label").textContent = data.label;
+      card.querySelector(".compare-card__phrase").textContent = data.phrase;
+      card.querySelector(".compare-card__example").textContent = "例：" + data.example;
+      card.querySelector(".compare-card__result").textContent = data.result;
+    });
+    root.querySelector(".compare-summary").innerHTML = `${c.summaryTop}<br>${c.summaryBottom}`;
+    root.querySelector(".compare-note").textContent = c.note;
+  }
+
+  /* ------------------------------------------------------------
+     結局どれを使えばいい？
+  ------------------------------------------------------------ */
+  function renderWhich(c) {
+    const root = document.getElementById("which");
+    if (!root || !c) return;
+    root.querySelector(".section__heading").innerHTML = c.heading;
+    const list = root.querySelector(".qa-list");
+    list.innerHTML = c.qa
+      .map((item) => `<li><p class="qa-list__q">${escapeHtml(item.q)}</p><p class="qa-list__a">→ ${escapeHtml(item.a)}</p></li>`)
+      .join("");
+
+    document.getElementById("ask-claude-heading").innerHTML = c.askClaude.heading;
+    const promptText = document.getElementById("ask-claude-prompt-text");
+    promptText.textContent = c.askClaude.promptText;
+    const btn = root.querySelectorAll(".copy-btn")[0];
+    if (btn) {
+      btn.querySelector(".copy-btn__label").textContent = c.askClaude.buttonText;
+      btn.querySelector(".copy-btn__done").textContent = c.askClaude.copiedText;
+    }
+  }
+
+  /* ------------------------------------------------------------
+     今日やること
+  ------------------------------------------------------------ */
+  function renderToday(c) {
+    const root = document.getElementById("today");
+    if (!root || !c) return;
+    root.querySelector(".section__heading").innerHTML = c.heading;
+    root.querySelector(".section__desc").textContent = c.subheading;
+    const list = root.querySelector(".todo-list");
+    list.innerHTML = c.items
+      .map((item) => `<li><label><input type="checkbox"><span>${escapeHtml(item)}</span></label></li>`)
+      .join("");
+    root.querySelector(".todo-list__foot").innerHTML = c.footNote;
+  }
+
+  /* ------------------------------------------------------------
+     AIを使えるだけでは収入にはならない
+  ------------------------------------------------------------ */
+  function renderClosing(c) {
+    const root = document.getElementById("closing");
     if (!root || !c) return;
     root.querySelector(".section__heading").innerHTML = c.heading;
     root.querySelector(".prose").innerHTML = c.paragraphs.map((p) => `<p>${p}</p>`).join("");
   }
 
   /* ------------------------------------------------------------
-     10. 最後の案内（CTA）
+     最後の案内（CTA）
   ------------------------------------------------------------ */
   function renderCta(c) {
     const root = document.getElementById("cta");
@@ -259,7 +322,7 @@
   }
 
   /* ------------------------------------------------------------
-     11. フッター
+     フッター
   ------------------------------------------------------------ */
   function renderFooter(c) {
     const root = document.querySelector(".footer");
@@ -346,22 +409,19 @@
       try {
         applyMeta(CONTENT.meta);
         renderHero(CONTENT.hero);
-        renderExampleVideo(CONTENT.exampleVideo);
-        renderMainPrompt(CONTENT.mainPrompt);
-        renderSteps(CONTENT.steps);
-        renderTips(CONTENT.tips);
-        renderExtraQuestions(CONTENT.extraQuestions);
-        renderCaution(CONTENT.caution);
+        renderQuickNav(CONTENT.quickNav);
+        renderIntro(CONTENT.intro);
+        renderAuthor(CONTENT.author);
+        renderOverview(CONTENT.overview);
+        renderChat(CONTENT.chat);
+        renderCowork(CONTENT.cowork);
+        renderCode(CONTENT.code);
+        renderCompare(CONTENT.compare);
+        renderWhich(CONTENT.which);
+        renderToday(CONTENT.today);
+        renderClosing(CONTENT.closing);
         renderCta(CONTENT.cta);
         renderFooter(CONTENT.footer);
-
-        const s = CONTENT.sections || {};
-        toggleSection("example-video", s.video !== false);
-        toggleSection("main-prompt", s.mainPrompt !== false);
-        toggleSection("steps-container", s.steps !== false);
-        toggleSection("tips", s.tips !== false);
-        toggleSection("extra-questions", s.extraQuestions !== false);
-        toggleSection("caution", s.caution !== false);
       } catch (err) {
         // content.js の書き方に誤りがある場合はここに来ます。
         // index.html に書かれた初期文章がそのまま表示されるので、ページは壊れません。
