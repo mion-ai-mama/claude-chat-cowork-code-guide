@@ -131,8 +131,8 @@ cta: {
 
 ## 7. 今後の運用でやること（TODO）
 
-- [ ] このガイド専用のOGP画像（SNSシェア用の画像）を用意し、`content.js` の `meta.ogpImage` を
-      差し替える（現在はCTAバナー画像を仮で流用しています）
+- [x] このガイド専用のOGP画像（`assets/images/ogp.png`）を用意し、`content.js` の
+      `meta.ogpImage` を差し替え済み
 - [ ] Claude公式の仕様（料金・プラン・対応OS等）は変更される可能性があるため、
       定期的に [claude.com/pricing](https://claude.com/pricing) と
       [claude.com/product/cowork](https://claude.com/product/cowork) で内容を見直す
